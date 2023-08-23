@@ -7,13 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LibraryViewController: UIViewController {
 
+    var libraryViewModel: LibraryViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        libraryViewModel = LibraryViewModel()
+        libraryViewModel?.loadData()
+        print(libraryViewModel?.articleModel)
     }
-
-
+    
 }
 
