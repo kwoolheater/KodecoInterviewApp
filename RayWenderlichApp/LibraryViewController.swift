@@ -14,8 +14,24 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         libraryViewModel = LibraryViewModel()
-        libraryViewModel?.loadData()
-        print(libraryViewModel?.articleModel)
+        libraryViewModel?.loadArticlesData() { result in
+            switch result {
+            case true:
+                print("")
+//                print(self.libraryViewModel?.articleModel)
+            case false:
+                print("error")
+            }
+        }
+        
+        libraryViewModel?.loadVideosData() { result in
+            switch result {
+            case true:
+                print(self.libraryViewModel?.videosModel)
+            case false:
+                print("error")
+            }
+        }
     }
     
 }
